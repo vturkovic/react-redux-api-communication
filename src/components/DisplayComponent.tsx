@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers/rootReducer';
+import { RootState } from '../interfaces';
 
 function DisplayComponent() {
   const posts = useSelector((state: RootState) => state.posts);

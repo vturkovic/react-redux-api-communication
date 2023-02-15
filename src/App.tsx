@@ -9,9 +9,13 @@ const store = configureStore({
   reducer: rootReducer,
 });
 
-function App() {
+// Dummy credentials
+const USERNAME = 'username';
+const PASSWORD = 'password';
+
+const App = () => {
   useEffect(() => {
-    store.dispatch(fetchPosts());
+    store.dispatch(fetchPosts(USERNAME+PASSWORD));
   }, []);
 
   return (

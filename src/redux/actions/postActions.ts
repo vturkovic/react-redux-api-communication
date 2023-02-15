@@ -1,16 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (authString: string,) => {
   try {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer <token>',
+        'Authorization': btoa(authString),
       },
       credentials: 'include',
     });
-    
+
     const data = await response.json();
     return data;
 
